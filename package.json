@@ -1,0 +1,19 @@
+{
+  "name": "team6threaded",
+  "version": "1.0.0",
+  "description": "Threaded project for team 6 ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owenp500/Team6Threaded.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/owenp500/Team6Threaded/issues"
+  },
+  "homepage": "https://github.com/owenp500/Team6Threaded#readme"
+}
