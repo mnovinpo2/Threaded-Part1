@@ -7,9 +7,13 @@ app.use(express.static(path.join(__dirname, "views"),{ extensions: ["html","htm"
 app.use(express.static(path.join(__dirname,"public"),{ extensions: ["css","js"]}));
 app.use(express.static(path.join(__dirname,"media"),{ extensions: ["gif","jpg","png"]}));
 
-app.listen(8000, (err) => {
+//by setting PORT environment variable we can change which port the app listens on 
+//defaults to 8000
+const port = process.env.PORT || 8000;
+app.listen(port, (err) => {
     if (err) throw err;
-    console.log("server started on port 8000");
+    console.log(`server started on port ${port}`);
+    console.log(process.env.PORT);
 });
 
 app.get("/", (req, res) => {
