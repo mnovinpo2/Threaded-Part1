@@ -34,3 +34,6 @@ a {
     color:#BCABAE;
     padding:5px;
 }
+a:hover {
+    background-color:#df5273;
+}
