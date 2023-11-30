@@ -24,3 +24,7 @@ app.get("/contact", (req, res) => {
 app.get("/register", (req, res) => {
     res.send("register");
 });
+
+app.use((req,res, next) => {
+    res.status(404).sendFile(__dirname + "/views/404.html");
+});
