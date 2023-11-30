@@ -1,0 +1,36 @@
+html {
+    background-color:#FBFBFB;
+    color:#274D69;
+}
+h1, h2, h3, h4, h5, h6 {
+    color:#BCABAE;
+}
+#header {
+    position: fixed;
+    top:0;
+    width:100%;
+    background-color: #274D69;
+}
+#brandHeader {
+    width:100%;
+    height:10vh;
+    float:left;
+    display:block;
+}
+#navigationBar{
+    float:left;
+    display:block;
+}
+#content {
+    padding: 20px;
+    margin-top: 10vh;
+}
+.filler {
+    font-size: x-large;
+}
+a {
+    background-color: #A61C3C;
+    border:1px groove black;
+    color:#BCABAE;
+    padding:5px;
+}
