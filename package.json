@@ -4,7 +4,8 @@
   "description": "Threaded project for team 6 ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/owenp500/Team6Threaded/issues"
   },
-  "homepage": "https://github.com/owenp500/Team6Threaded#readme"
+  "homepage": "https://github.com/owenp500/Team6Threaded#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.0.1"
+  }
 }
