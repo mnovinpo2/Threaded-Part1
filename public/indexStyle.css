@@ -1,25 +1,26 @@
-html {
-    background-color:#FBFBFB;
-    color:#274D69;
-}
-h1, h2, h3, h4, h5, h6 {
-    color:#BCABAE;
-}
+
 #header {
     position: fixed;
     top:0;
+    left:0px;
     width:100%;
     background-color: #274D69;
+    min-height:fit-content;
 }
 #brandHeader {
     width:100%;
+    min-height:max-content;
     height:10vh;
     float:left;
     display:block;
+    
+
 }
 #navigationBar{
     float:left;
     display:block;
+    padding-left: 3vw;
+    
 }
 #content {
     padding: 20px;
@@ -28,12 +29,41 @@ h1, h2, h3, h4, h5, h6 {
 .filler {
     font-size: x-large;
 }
-a {
+div.imgContainer {
+    height:50vh;
+    display:flex;
+    vertical-align: middle; 
+    vertical-align: middle;
+}
+
+img.travelImage {
+    width:65vw;
+    margin:5px;
+    float:left;
+}
+p.imgDescription {
+    float:left;
+   
+}
+a.navItem {
     background-color: #A61C3C;
     border:1px groove black;
     color:#BCABAE;
     padding:5px;
+    width:30vw;
+    float: left;
+    text-align:center;
 }
-a:hover {
+a.navItem:hover {
     background-color:#df5273;
+}
+
+
+
+html {
+    background-color:#FBFBFB;
+    color:#274D69;
+}
+h1, h2, h3, h4, h5, h6 {
+    color:#BCABAE;
 }
