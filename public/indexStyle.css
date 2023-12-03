@@ -13,37 +13,42 @@
     height:10vh;
     float:left;
     display:block;
-    
-
 }
 #navigationBar{
     float:left;
     display:block;
     padding-left: 3vw;
-    
 }
 #content {
     padding: 20px;
     margin-top: 10vh;
 }
-.filler {
+#footer {
+    float:left;
+    width:100vw;
+    background-color: #274D69;
+    min-height:fit-content;
+}
+.bodyParagraph {
     font-size: x-large;
 }
 div.imgContainer {
-    height:50vh;
     display:flex;
     vertical-align: middle; 
-    vertical-align: middle;
+        text-align:center;
 }
-
 img.travelImage {
-    width:65vw;
+    width:50vw;
     margin:5px;
     float:left;
+    text-align:center;
 }
 p.imgDescription {
     float:left;
-   
+    width:47%;
+    
+    margin-top:6.5%;
+    font-size:22pt;
 }
 a.navItem {
     background-color: #A61C3C;
@@ -57,9 +62,10 @@ a.navItem {
 a.navItem:hover {
     background-color:#df5273;
 }
-
-
-
+p.smallText {
+    margin:0;
+    color:#FBFBFB;
+}
 html {
     background-color:#FBFBFB;
     color:#274D69;
