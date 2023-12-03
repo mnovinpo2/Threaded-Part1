@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Experts - Travel Packages</title>
+    <style>
+        .package {
+            width: 48%;
+            float: left;
+            border: 1px solid #cccccc;
+            border-radius: 10px;
+            margin: 5px;
+        }
+
+        .package img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .package h2, .package p {
+            margin: 5px;
+        }
+        .package input {
+            float: right;
+        }
+        .currentlyRunning {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Travel Packages</h1>
+
+    <% for (var i=0; i<result.length; i++) {
+        var package = result[i];
+        const startDate = new Date(package.PkgStartDate);
+        const endDate = new Date(package.PkgEndDate);
+        const today = new Date();
+        const options = {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        };
+        var imgName = package.PkgName.toLowerCase().replace(/\ /g, "_");
+        var formattedPrice = package.PkgBasePrice.toLocaleString("en-US", { style: "currency", currency: "USD"});
+        if (endDate >= today) {
+        %>
+            <div class="package">
+                <img src="<%= imgName %>.jpg" alt="<%= package.PkgName %>" />
+                <h2><%= package.PkgName %></h2>
+                <p><%= package.PkgDesc %></p>
+                <p>Start Date: 
+                <%
+                if (startDate < today) {
+                    %>
+                    <span class="currentlyRunning"><%= startDate.toLocaleDateString("en-US", options) %></span>
+                    <%
+                } else {
+                    %>
+                    <%= startDate.toLocaleDateString("en-US", options) %>
+                    <%
+                }
+                %>
+                <br />
+                End Date: <%= endDate.toLocaleDateString("en-US", options) %></p>
+                <p><%= formattedPrice %> <input type="button" value="Book Now" onclick="window.location.href = '/getpackage/<%= package.PackageId %>'" /></p>
+            </div>
+        <%
+        }
+    }
+    %>
+</body>
+</html>

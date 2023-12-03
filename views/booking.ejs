@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking</title>
+</head>
+<body>
+    <h1><%= package[0].PkgName %></h1>
+    <form method="post" action="/createbooking">
+        <input type="hidden" name="PackageId" value="<%= package[0].PackageId %>" />
+        <label for="CustFirstName">First Name: </label><input type="text" name="CustFirstName" id="CustFirstName" /><br />
+        <label for="CustLastName">Last Name: </label><input type="text" name="CustLastName" id="CustLastName" /><br />
+        <label for="CustAddress">Address: </label><input type="text" name="CustAddress" id="CustAddress" /><br />
+        <label for="CustCity">City: </label><input type="text" name="CustCity" id="CustCity" /><br />
+        <label for="CustProv">Province: </label><input type="text" name="CustProv" id="CustProv" maxlength="2" size="2" /><br />
+        <label for="CustPostal">Postal Code: </label><input type="text" name="CustPostal" id="CustPostal" /><br />
+        <label for="CustCountry">Country: </label><input type="text" name="CustCountry" id="CustCountry" /><br />
+        <label for="CustHomePhone">Home Phone: </label><input type="text" name="CustHomePhone" id="CustHomePhone" /><br />
+        <label for="CustBusPhone">Business Phone: </label><input type="text" name="CustBusPhone" id="CustBusPhone" /><br />
+        <label for="CustEmail">Email: </label><input type="email" name="CustEmail" id="CustEmail" /><br />
+        <label for="TravelerCount">Traveler Count: </label><input type="number" name="TravelerCount" id="TravelerCount" /><br />
+        <label for="AgentId">Agent: </label>
+        <select name="AgentId" id="AgentId">
+            <option value="">Select an Agent</option>
+            <%
+            for (var i=0; i<agents.length; i++) {
+            %>
+                <option value="<%= agents[i].AgentId %>"><%= agents[i].AgtFirstName %> <%= agents[i].AgtMiddleInitial %> <%= agents[i].AgtLastName %></option>
+            <%
+            }
+            %>
+        </select><br />
+        <label for="TripTypeId">Trip Type: </label>
+        <select name="TripTypeId" id="TripTypeId">
+            <option value="">Select a Trip Type</option>
+            <%
+            for (var i=0; i<tripTypes.length; i++) {
+            %>
+                <option value="<%= tripTypes[i].TripTypeId %>"><%= tripTypes[i].TTName %></option>
+            <%
+            }
+            %>
+        </select><br />
+        <button type="submit">Book Vacation</button>
+    </form>
+</body>
+</html>
