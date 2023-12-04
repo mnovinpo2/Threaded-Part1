@@ -5,12 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+</head>
+    <body>
+      <style> 
+        .agent {
+            background-color: #274d69;
+            color: aliceblue;
+            line-height: 170%;
+            padding: 50px;
 
-<table border="1">
+
+        }
+        table {
+            width: 180%;
+            
+        }
+
+      </style>
+    
+
+<table >
     <thread>
 
     </thread>
-    <tr>
+    <tr class="agent">
         <th> First Name </th>
         <th> Last Name </th>
         <th> Email </th>
@@ -18,15 +36,17 @@
 
     </tr>
     
-    <tr>
+  
         
     <% agents.forEach(function(agent) { %>
-        <td><%= agent.AgtFirstName %></td>
-        <td><%= agent.AgtLastName %></td>
-        <td><%= agent.AgtEmail %></td>
-        <td><%= agent.AgtBusPhone %></td>
+        <tr class="agent">
+        <td class="td1"><%= agent.AgtFirstName %></td>
+        <td  class="td1"><%= agent.AgtLastName %></td>
+        <td  class="td1"><%= agent.AgtEmail %></td>
+        <td class="td1"><%= agent.AgtBusPhone %></td>
     </tr>   
     <% }) %>
     
     
 </table>
+</body>
