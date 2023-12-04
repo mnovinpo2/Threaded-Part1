@@ -37,7 +37,15 @@ app.get("/contact", (req, res) => {
 });
 
 app.get("/register", (req, res) => {
-    res.send("register");
+    var dbh = getConnection();
+
+    sqlString = "SELECT `AgentId`, `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName` FROM agents";
+    dbh.query({ sql: sqlString }, (err, result) => {
+        if (err) throw err;
+        agents = result;
+        console.log(agents);
+        res.render("register",{agents: agents});
+    });    
 });
 
 
