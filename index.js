@@ -143,9 +143,9 @@ app.use((req,res, next) => {
 // Added by Elias Nahas
 function getConnection() {
     return mysql.createConnection({
-        host: "localhost",
+        host: "travelexperts.cjaxpywc2bvi.us-east-2.rds.amazonaws.com",
         user: "travelexperts",
-        password: "password",
+        password: "78+2R=,]h$49",
         database: "travelexperts"
     });
 };
