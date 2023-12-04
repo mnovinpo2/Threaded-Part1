@@ -5,23 +5,9 @@
         <link rel="stylesheet" href="indexStyle.css" />
     </head>
     <body>
-        <!-- website header -->
-        <div id="header">
-            <!--company name and a slogan-->
-            <!-- TODO maybe come up with a logo to put here  -->
-            <div id="brandHeader">
-                <h1 style="margin:1vh; float:left;"> Travel Experts</h1>
-                <h3 style="margin:1vh; float:left;"> travel anywhere!!! </h3>
-            </div>
-            <!-- links to other pages -->
-            <div id="navigationBar">
-                <a class="navItem" href="contact"> Contact us </a>
-                <a class="navItem" href="register"> Register here</a>
-                <a class="navItem" href="packages"> Vacation Packages </a>
-            </div>
-
         
-        </div> 
+        <%- include('./partials/header'); %>
+
         <div id="content">
             <!-- body paragraph-->
             <p class="bodyParagraph"> Welcome to Travel Experts! We cover all of your travel needs 
@@ -57,13 +43,6 @@
             </div>
         </div>
 
-        <!-- website footer-->
-        <div id="footer">
-            <p class="smallText"> 
-                &copy 2023 team6Development                 
-                <a style="float:right" href="contact"> Contact us </a>
-            </p>
-            
-        </div>
+        <%- include('./partials/footer.ejs'); %>
     </body>
 </html>
