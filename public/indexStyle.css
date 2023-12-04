@@ -52,3 +52,16 @@ html {
 h1, h2, h3, h4, h5, h6 {
     color:#BCABAE;
 }
+.error {
+    display: none;
+    color: red;
+    background-color: rgb(253, 225, 225);
+    padding-left: 2px;
+    padding-right: 2px;
+}
+label {
+    width: 110px;
+    display: inline-block;
+    text-align: end;
+    margin-bottom: 5px;
+}

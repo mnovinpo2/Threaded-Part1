@@ -7,22 +7,23 @@
     <link rel="stylesheet" href="../indexStyle.css" />
     <script>
     function validate(myform) {
-        var hasError = false;
-        var postalField = document.getElementById("postal");
+        for (var i=0; i<document.forms[0].elements.length - 2; i++) {
+            if (myform.elements[i].name != "CustBusPhone"){
+                if (myform.elements[i].value=="") {
+                    myform.elements[i].focus();
+                    return false;
+                }
+            }
+        }
+        var postalField = document.getElementById("CustPostal");
         var exp = new RegExp(/^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i);
         var postalCode = postalField.value.trim().toUpperCase();
         postalField.value = postalCode;
         if (!exp.test(postalCode)) {
-            hasError = true;
             postalField.focus();
-        }
-        alert(hasError);
-        return confirm('Continue submitting?');
-        if (!hasError) {
-            return confirm('Continue submitting?');
-        } else {
             return false;
         }
+        return true;
     }
     function showMessage(myID) {
         document.getElementById(myID + "Span").style.display = 'inline-block';
@@ -33,33 +34,38 @@
     </script>
 </head>
 <body>
+    <%
+    var imgName = package[0].PkgName.toLowerCase().replace(/\ /g, "_");
+    %>
+    <div class="imgContainer">
+        <img class="travelImage" src="../<%= imgName %>.jpg" alt="<%= package.PkgName %>" /> 
+    </div>
     <h1><%= package[0].PkgName %></h1>
     <form method="post" action="/createbooking">
         <input type="hidden" name="PackageId" value="<%= package[0].PackageId %>" />
-        <label for="CustFirstName">First Name: </label><input type="text" name="CustFirstName" id="CustFirstName" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustFirstName">First Name:&nbsp;</label><input type="text" name="CustFirstName" id="CustFirstName" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustFirstNameSpan" class="error">Please enter your first name</span><br />
-        <label for="CustLastName">Last Name: </label><input type="text" name="CustLastName" id="CustLastName" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustLastName">Last Name:&nbsp;</label><input type="text" name="CustLastName" id="CustLastName" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustLastNameSpan" class="error">Please enter your last name</span><br />
-        <label for="CustAddress">Address: </label><input type="text" name="CustAddress" id="CustAddress" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustAddress">Address:&nbsp;</label><input type="text" name="CustAddress" id="CustAddress" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustAddressSpan" class="error">Please enter your address</span><br />
-        <label for="CustCity">City: </label><input type="text" name="CustCity" id="CustCity" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustCity">City:&nbsp;</label><input type="text" name="CustCity" id="CustCity" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustCitySpan" class="error">Please enter your city</span><br />
-        <label for="CustProv">Province: </label><input type="text" name="CustProv" id="CustProv" maxlength="2" size="2" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustProv">Province:&nbsp;</label><input type="text" name="CustProv" id="CustProv" maxlength="2" size="2" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustProvSpan" class="error">Please enter your province</span><br />
-        <label for="CustPostal">Postal Code: </label><input type="text" name="CustPostal" id="CustPostal" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustPostal">Postal Code:&nbsp;</label><input type="text" name="CustPostal" id="CustPostal" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustPostalSpan" class="error">Please enter your postal code in the format "A1A 1A1"</span><br />
-        <label for="CustCountry">Country: </label><input type="text" name="CustCountry" id="CustCountry" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustCountry">Country:&nbsp;</label><input type="text" name="CustCountry" id="CustCountry" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustCountrySpan" class="error">Please enter your country</span><br />
-        <label for="CustHomePhone">Home Phone: </label><input type="text" name="CustHomePhone" id="CustHomePhone" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustHomePhone">Home Phone:&nbsp;</label><input type="text" name="CustHomePhone" id="CustHomePhone" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustHomePhoneSpan" class="error">Please enter your home phone number</span><br />
-        <label for="CustBusPhone">Business Phone: </label><input type="text" name="CustBusPhone" id="CustBusPhone" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustBusPhone">Business Phone:&nbsp;</label><input type="text" name="CustBusPhone" id="CustBusPhone" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustBusPhoneSpan" class="error">Please enter your business phone number</span><br />
-        <label for="CustEmail">Email: </label><input type="email" name="CustEmail" id="CustEmail" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="CustEmail">Email:&nbsp;</label><input type="email" name="CustEmail" id="CustEmail" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="CustEmailSpan" class="error">Please enter your email</span><br />
-        <label for="TravelerCount">Traveler Count: </label><input type="number" name="TravelerCount" id="TravelerCount" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
+        <label for="TravelerCount">Traveler Count:&nbsp;</label><input type="number" name="TravelerCount" id="TravelerCount" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
         <span id="TravelerCountSpan" class="error">Please enter the number of travelers</span><br />
-        <label for="AgentId">Agent: </label>
-        <select name="AgentId" id="AgentId" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);">
+        <label for="AgentId">Agent:&nbsp;</label><select name="AgentId" id="AgentId" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);">
             <option value="">Select an Agent</option>
             <%
             for (var i=0; i<agents.length; i++) {
@@ -70,8 +76,7 @@
             %>
         </select>
         <span id="AgentIdSpan" class="error">Please select your agent</span><br />
-        <label for="TripTypeId">Trip Type: </label>
-        <select name="TripTypeId" id="TripTypeId" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);">
+        <label for="TripTypeId">Trip Type:&nbsp;</label><select name="TripTypeId" id="TripTypeId" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);">
             <option value="">Select a Trip Type</option>
             <%
             for (var i=0; i<tripTypes.length; i++) {
