@@ -25,8 +25,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-    res.send("contact");
-    
+    var dbh = getConnection();
+
+    dbh.query({sql: "select * FROM agents"}, (err, result) => {
+        var agents = result;
+        console.log(agents);
+        res.render("contact",{agents: agents});
+    });    
 });
 app.get("/about", (req, res) => {
     res.send("about");
