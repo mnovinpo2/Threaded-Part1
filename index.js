@@ -23,7 +23,9 @@ app.get("/", (req, res) => {
     res.render("index");
 
 });
-
+app.get("/aboutUs", (req, res) => {
+    res.render("AboutUs");
+});
 app.get("/contact", (req, res) => {
     var dbh = getConnection();
 
@@ -33,13 +35,12 @@ app.get("/contact", (req, res) => {
         res.render("contact",{agents: agents});
     });    
 });
-app.get("/about", (req, res) => {
-    res.send("about");
-});
 
 app.get("/register", (req, res) => {
     res.send("register");
 });
+
+
 
 app.get("/packages", (req, res) => {
     // Added by Elias Nahas
