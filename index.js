@@ -20,13 +20,16 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-    res.send("index");
+    res.render("index");
 
 });
 
 app.get("/contact", (req, res) => {
     res.send("contact");
     
+});
+app.get("/about", (req, res) => {
+    res.send("about");
 });
 
 app.get("/register", (req, res) => {
