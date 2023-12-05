@@ -28,11 +28,14 @@ app.get("/aboutUs", (req, res) => {
 });
 app.get("/contact", (req, res) => {
     var dbh = getConnection();
-
+    var agencies;
+    dbh.query({sql: "SELECT * FROM agencies"}, (err,result) => {
+        agencies = result;
+        console.log(agencies);
+    });
     dbh.query({sql: "select * FROM agents"}, (err, result) => {
         var agents = result;
-        console.log(agents);
-        res.render("contact",{agents: agents});
+        res.render("contact",{agents: agents, agencies: agencies});
     });    
 });
 
@@ -153,8 +156,8 @@ app.post("/createbooking", (req, res) => {
     });
 });
 
-app.use((req,res, next) => {
-    res.status(404).sendFile(__dirname + "/views/404.html");
+app.get("/404", (req, res) => {
+    res.render("404");
 });
 
 // Added by Elias Nahas

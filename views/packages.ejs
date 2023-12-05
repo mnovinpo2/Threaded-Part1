@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Experts - Travel Packages</title>
     <link rel="stylesheet" href="indexStyle.css" />
+    <link rel="stylesheet" href="templateStyle.css" />
 
     <style>
         .package {
@@ -13,7 +14,6 @@
             border: 1px solid #cccccc;
             border-radius: 10px;
             margin: 5px;
-            box-shadow: 5px 5px 5px #aaaaaa;
         }
 
         .package img {
@@ -76,8 +76,8 @@
             }
         }
         %>
+        <%- include('./partials/footer.ejs'); %>
     </div>
-    <%- include('./partials/footer.ejs'); %>
     
 </body>
 </html>
