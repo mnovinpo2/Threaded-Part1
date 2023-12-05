@@ -14,9 +14,8 @@
 
 
             }
-            table {
-                width: 100%;
-                
+            row {
+                width:20vw;
             }
 
         </style>
@@ -27,7 +26,7 @@
     
         <table style="padding-top:100px">
         <% agencies.forEach(function(agency) { %>
-            <tr class="agent">
+            <tr class="agent row">
                 <td class="td1"> <%= agency.AgncyPhone %> </td>
                 <td class="td1"> <%= agency.AgncyCity %>, <%= agency.AgncyAddress %>  </td>
 
@@ -36,12 +35,11 @@
 
         <% }) %>
         </table>
-
+      <br/><br/>
         <table >
     
-        <tr class="agent">
-            <th> First Name </th>
-            <th> Last Name </th>
+        <tr class="agent ">
+            <th> Name </th>
             <th> Email </th>
             <th> Phone Number </th>
 
@@ -51,10 +49,9 @@
 
         <% agents.forEach(function(agent) { %>
             <tr class="agent">
-            <td class="td1"><%= agent.AgtFirstName %></td>
-            <td  class="td1"><%= agent.AgtLastName %></td>
-            <td  class="td1"><%= agent.AgtEmail %></td>
-            <td class="td1"><%= agent.AgtBusPhone %></td>
+            <td class="td1  row"><%= agent.AgtFirstName %> <%= agent.AgtLastName %></td>
+            <td  class="td1  row"><%= agent.AgtEmail %></td>
+            <td class="td1  row" ><%= agent.AgtBusPhone %></td>
         </tr>   
         <% }) %>
 
