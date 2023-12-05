@@ -1,9 +1,9 @@
 #header {
-    position: sticky;
+    position: fixed;
     top:0;
     left:0px;
-    width:100%;
-    background-color: #274D69;
+    width:125vw;
+    background-color: #316387;
     min-height:fit-content;
 }
 #brandHeader {
@@ -11,12 +11,31 @@
     min-height:max-content;
     height:10vh;
     float:left;
-    display:block;
+    display:flex;
+    align-items:center;
 }
 #navigationBar{
     float:left;
     display:block;
-    padding-left: 3vw;
-
 }
-
+a.navItem {
+    background-color: #316387;
+    border-left:1px solid black;
+    border-right:1px solid black;
+    border-top:2px groove black;
+    color:#cfcfcf;
+    padding:5px;
+    width:24vw;
+    float: left;
+    text-align:center;
+    text-decoration: none;
+}
+a.navItem:hover {
+    background-color:#df5273;
+}
+h1, h2, h3, h4, h5, h6 {
+    color:#ffffff;
+}
+p {
+    font-size: small;
+}
