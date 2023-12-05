@@ -29,18 +29,6 @@ p.imgDescription {
     margin-top:6.5%;
     font-size:22pt;
 }
-a.navItem {
-    background-color: #A61C3C;
-    border:1px groove black;
-    color:#BCABAE;
-    padding:5px;
-    width:30vw;
-    float: left;
-    text-align:center;
-}
-a.navItem:hover {
-    background-color:#df5273;
-}
 p.smallText {
     margin:0;
     color:#FBFBFB;
@@ -48,7 +36,4 @@ p.smallText {
 html {
     background-color:#FBFBFB;
     color:#274D69;
-}
-h1, h2, h3, h4, h5, h6 {
-    color:#BCABAE;
 }
