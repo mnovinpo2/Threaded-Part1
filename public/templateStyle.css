@@ -31,7 +31,7 @@ a.navItem {
     text-decoration: none;
 }
 a.navItem:hover {
-    background-color:#df5273;
+    background-color:rgb(82, 162, 223);
 }
 h1, h2, h3, h4, h5, h6 {
     color:#ffffff;
