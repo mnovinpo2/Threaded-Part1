@@ -153,8 +153,8 @@ app.post("/createbooking", (req, res) => {
     });
 });
 
-app.use((req,res, next) => {
-    res.status(404).sendFile(__dirname + "/views/404.html");
+app.get("/404", (req, res) => {
+    res.render("404");
 });
 
 // Added by Elias Nahas
