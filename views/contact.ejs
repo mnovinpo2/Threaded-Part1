@@ -1,52 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <style> 
-        .agent {
-            background-color: #274d69;
-            color: aliceblue;
-            line-height: 170%;
-            padding: 50px;
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <style> 
+            .agent {
+                background-color: #274d69;
+                color: aliceblue;
+                line-height: 170%;
+                padding: 50px;
 
 
-        }
-        table {
-            width: 180%;
-            
-        }
+            }
+            table {
+                width: 100%;
+                
+            }
 
-      </style>
-      <link rel="stylesheet" href="templateStyle.css" />
-</head>
+        </style>
+        <link rel="stylesheet" href="templateStyle.css" />
+    </head>
     <body>
         <%- include('./partials/header'); %>
     
+        <table style="padding-top:100px">
+        <% agencies.forEach(function(agency) { %>
+            <tr class="agent">
+                <td class="td1"> <%= agency.AgncyPhone %> </td>
+                <td class="td1"> <%= agency.AgncyCity %>, <%= agency.AgncyAddress %>  </td>
 
-<table >
-    <tr class="agent">
-        <th> First Name </th>
-        <th> Last Name </th>
-        <th> Email </th>
-        <th> Phone Number </th>
 
-    </tr>
+            </tr> 
+
+        <% }) %>
+        </table>
+
+        <table >
     
-  
-        
-    <% agents.forEach(function(agent) { %>
         <tr class="agent">
-        <td class="td1"><%= agent.AgtFirstName %></td>
-        <td  class="td1"><%= agent.AgtLastName %></td>
-        <td  class="td1"><%= agent.AgtEmail %></td>
-        <td class="td1"><%= agent.AgtBusPhone %></td>
-    </tr>   
-    <% }) %>
+            <th> First Name </th>
+            <th> Last Name </th>
+            <th> Email </th>
+            <th> Phone Number </th>
+
+        </tr>
     
     
-</table>
-<%- include('./partials/footer'); %>
-</body>
+
+        <% agents.forEach(function(agent) { %>
+            <tr class="agent">
+            <td class="td1"><%= agent.AgtFirstName %></td>
+            <td  class="td1"><%= agent.AgtLastName %></td>
+            <td  class="td1"><%= agent.AgtEmail %></td>
+            <td class="td1"><%= agent.AgtBusPhone %></td>
+        </tr>   
+        <% }) %>
+
+        </table>
+        <%- include('./partials/footer'); %>
+    </body>
+</html>
