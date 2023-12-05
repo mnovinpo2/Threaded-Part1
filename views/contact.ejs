@@ -7,15 +7,30 @@
         <title>Contact</title>
         <style> 
             .agent {
-                background-color: #274d69;
-                color: aliceblue;
+                background-color:  rgb(68, 83, 123);
+                color: #ffffff;
                 line-height: 170%;
                 padding: 50px;
+                border-bottom: 1px solid white;
 
 
             }
-            row {
-                width:20vw;
+            table {
+                border-spacing:0;
+                width:100vw;
+                margin-left:10vw;
+                margin-right:10vw;
+            }
+            .td1 {
+                border:0px solid  white;
+                border-spacing: 30px;
+                border-right-color:  rgb(68, 83, 123);
+                background-color:  rgb(68, 83, 123);
+                border-bottom-width: 10px;
+            }
+            .tHeader {
+                line-height:40px;
+
             }
 
         </style>
@@ -23,14 +38,13 @@
     </head>
     <body>
         <%- include('./partials/header'); %>
-    
-        <table style="padding-top:100px">
+        <h1 style="color:black; padding-top:100px"> Agencies: </h1>
+        <table>
+        
         <% agencies.forEach(function(agency) { %>
-            <tr class="agent row">
-                <td class="td1"> <%= agency.AgncyPhone %> </td>
+            <tr class="agent">
                 <td class="td1"> <%= agency.AgncyCity %>, <%= agency.AgncyAddress %>  </td>
-
-
+                <td class="td1"> <%= agency.AgncyPhone %> </td>
             </tr> 
 
         <% }) %>
@@ -38,21 +52,32 @@
       <br/><br/>
         <table >
     
-        <tr class="agent ">
-            <th> Name </th>
-            <th> Email </th>
-            <th> Phone Number </th>
-
+        <tr class="agent" style="border-bottom:3px solid rgb(255, 0, 0);">
+            <th class="td1 tHeader"> Agent </th>
+            <th class="td1 tHeader"> Email </th>
+            <th class="td1 tHeader"> Phone Number </th>
+            <th class="td1 tHeader"> Agency </th>
         </tr>
     
-    
-
+        
+        
         <% agents.forEach(function(agent) { %>
+        <%
+            //manually checks which agency an agent belongs to
+            var agencyLocation; 
+            if (agent.AgencyId==1){            
+                agencyLocation="Calgary";
+            } 
+            else{
+                agencyLocation= "Okotoks";
+            } 
+        %>
             <tr class="agent">
-            <td class="td1  row"><%= agent.AgtFirstName %> <%= agent.AgtLastName %></td>
-            <td  class="td1  row"><%= agent.AgtEmail %></td>
-            <td class="td1  row" ><%= agent.AgtBusPhone %></td>
-        </tr>   
+            <td class="td1"><%= agent.AgtFirstName %> <%= agent.AgtLastName %></td>
+            <td  class="td1"><%= agent.AgtEmail %></td>
+            <td class="td1" ><%= agent.AgtBusPhone %></td>
+            <td class="td1"> <%= agencyLocation %> </td>
+            </tr>   
         <% }) %>
 
         </table>
