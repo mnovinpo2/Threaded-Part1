@@ -14,11 +14,17 @@ h1{
 	text-align: center;
 
 }
-.register, .option{
+.register, .register2, .option{
 	margin:auto;
 	max-width: 300px;
 	padding: 10px;
 	border-radius: 4px;
+}
+
+.container{
+	width: 50%;
+	display: flex;
+
 }
 input[type=text], input[type=email], select[onchange]
 {
@@ -46,7 +52,7 @@ button[type=submit], button[type=reset]
 {
 	position: fixed;
 	height: 50px;
-	width: 50px;
+	width: 200px;
 	top: 241px;
 	right: 30px;
 	color: white;
@@ -190,7 +196,7 @@ button[type=submit], button[type=reset]
 		
 <body>
 	<%- include('./partials/header'); %>
-	<img src="polynesian_beach" alt="beach" />
+	<div class="container">
 	<div class="register">
 		<h1>Registration</h1>
 	
@@ -201,22 +207,27 @@ button[type=submit], button[type=reset]
         onfocus="showTip('tip2')" onblur="hideTip('tip2')" /><br />
         Email: &nbsp;<input type="email" name="CustEmail"
         onfocus="showTip('tip3')" onblur="hideTip('tip3')" /><br />
-        Address: &nbsp;<input type="text" name="CustAddress"s
+        Address: &nbsp;<input type="text" name="CustAddress"
         onfocus="showTip('tip4')" onblur="hideTip('tip4')" /><br />
         City: &nbsp; <input type="text" name="CustCity"
         onfocus="showTip('tip5')" onblur="hideTip('tip5')" /><br />
         Province: &nbsp;<input type="text" name="CustProv"
         onfocus="showTip('tip6')" onblur="hideTip('tip6')" /><br />
-        Postal Code: &nbsp;<input type="text" name="CustPostal"
+		Postal Code: &nbsp;<input type="text" name="CustPostal"
         onfocus="showTip('tip7')" onblur="hideTip('tip7')" /><br />
         Country: &nbsp;<input type="text" name="CustCountry"
         onfocus="showTip('tip8')" onblur="hideTip('tip8')" /><br />
+		
+		</div>
+		<div class="register2">
+		
         Home Phone: &nbsp;<input type="text" name="CustHomePhone"
         onfocus="showTip('tip9')" onblur="hideTip('tip9')" /><br />
         Business Phone: &nbsp;<input type="text" name="CustBusPhone"
         onfocus="showTip('tip10')" onblur="hideTip('tip10')" /><br />
         Select Your Agent: <select onchange='getAgent(this.value)'>
 		<option value=''>Select an Agent to view details</option>
+		
 			<%
 			for (var i=0; i<agents.length; i++)
 			{
@@ -236,5 +247,6 @@ button[type=submit], button[type=reset]
 				<p id="mymessage" style="color:red"></p>
         </form><br>
 	</div>
+</div>
 	<%- include('./partials/footer.ejs'); %>
 	</body>

@@ -37,3 +37,18 @@ html {
     background-color:#FBFBFB;
     color:#274D69;
 }
+#bookingForm {
+    background-color: rgba(255, 255, 255, .75); padding: 5px;
+}
+#bookingForm label {
+    width: 130px;
+    display:inline-block;
+    text-align: end;
+}
+.error {
+    display: none;
+    color: red;
+    background-color: #fde1e1;
+    padding-left: 2px;
+    padding-right: 2px;
+}

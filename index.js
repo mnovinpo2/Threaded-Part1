@@ -51,6 +51,22 @@ app.get("/register", (req, res) => {
     });    
 });
 
+app.post("/insertcustomer", (req, res) => {
+    var dbh = getConnection();
+    var sql = "INSERT INTO `customers`(`CustFirstName`, `CustLastName`, `CustAddress`, `CustCity`, `CustProv`, `CustPostal`, `CustCountry`, `CustHomePhone`, `CustBusPhone`, `CustEmail`, `AgentId`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+    var data = [ req.body.CustFirstName, req.body.CustLastName, req.body.CustAddress, req.body.CustCity, req.body.CustProv, req.body.CustPostal, req.body.CustCountry, req.body.CustHomePhone, req.body.CustBusPhone, req.body.CustEmail, req.body.AgentId ];
+         dbh.query({ sql: sql, values: data }, (err, result) => {
+    if (err) throw err;
+    var message = "";
+    if (result.affectedRows) {
+        message = "Thank you for registering with us!";
+    } else {
+        message = "Registration failed";
+    }
+    res.render("thank-you", { message: message });       
+
+});    
+});
 
 
 app.get("/packages", (req, res) => {
