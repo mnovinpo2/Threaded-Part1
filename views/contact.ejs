@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-</head>
-    <body>
-      <style> 
+    <style> 
         .agent {
             background-color: #274d69;
             color: aliceblue;
@@ -22,13 +20,13 @@
         }
 
       </style>
+      <link rel="stylesheet" href="templateStyle.css" />
+</head>
+    <body>
+        <%- include('./partials/header'); %>
     
 
 <table >
-    <thread>
-
-    </thread>
-    |<h1> hello </h1>
     <tr class="agent">
         <th> First Name </th>
         <th> Last Name </th>
@@ -50,4 +48,5 @@
     
     
 </table>
+<%- include('./partials/footer'); %>
 </body>
