@@ -41,7 +41,7 @@
         %>
         <h1><%= package[0].PkgName %></h1>
         <div style="background-image: url('../<%= imgName %>.jpg'); background-size: 100%;">
-            <form method="post" action="/createbooking" style="background-color: rgba(255, 255, 255, .75); padding: 5px;">
+            <form id="bookingForm" method="post" action="/createbooking">
                 <input type="hidden" name="PackageId" value="<%= package[0].PackageId %>" />
                 <label for="CustFirstName">First Name:&nbsp;</label><input type="text" name="CustFirstName" id="CustFirstName" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
                 <span id="CustFirstNameSpan" class="error">Please enter your first name</span><br />
