@@ -5,6 +5,7 @@
     width:125vw;
     background-color: #316387;
     min-height:fit-content;
+    z-index:1;
 }
 #brandHeader {
     width:100%;
@@ -28,14 +29,27 @@ a.navItem {
     width:24vw;
     float: left;
     text-align:center;
+    font-family: 'Roboto', sans-serif;
+
     text-decoration: none;
 }
 a.navItem:hover {
     background-color:rgb(82, 162, 223);
+
 }
-h1, h2, h3, h4, h5, h6 {
+.headerLogo {
+    height:12vh;
+}
+.headerLogo:hover {
+    height:13vh;
+}
+.h {
+    font-family: 'Roboto', sans-serif; 
     color:#ffffff;
+
+
 }
+
 p {
     font-size: small;
 }
