@@ -9,16 +9,23 @@
     <script>
     function validate(myform) {
         var hasError = false;
-        var postalField = document.getElementById("postal");
+        var postalField = document.getElementById("CustPostal");
         var exp = new RegExp(/^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i);
         var postalCode = postalField.value.trim().toUpperCase();
         postalField.value = postalCode;
+        for (var i=0; i<document.forms[0].elements.length - 2; i++) {
+            if (myform.elements[i].value == "") {
+                if (myform.elements[i].name != "CustBusPhone") {
+                    hasError = true;
+                    myform.elements[i].focus();
+                    return false;
+                }
+            }
+        }
         if (!exp.test(postalCode)) {
             hasError = true;
             postalField.focus();
         }
-        alert(hasError);
-        return confirm('Continue submitting?');
         if (!hasError) {
             return confirm('Continue submitting?');
         } else {
