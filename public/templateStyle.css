@@ -19,6 +19,12 @@
     float:left;
     display:block;
 }
+#footer {
+    float:left;
+    width:100vw;
+    background-color: #316387;
+    min-height:fit-content;
+}
 a.navItem {
     background-color: #316387;
     border-left:1px solid black;
@@ -52,4 +58,8 @@ a.navItem:hover {
 
 p {
     font-size: small;
+}
+p.smallText {
+    margin:0;
+    color:#FBFBFB;
 }

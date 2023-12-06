@@ -2,12 +2,7 @@
     padding: 20px;
     margin-top: 10vh;
 }
-#footer {
-    float:left;
-    width:100vw;
-    background-color: #274D69;
-    min-height:fit-content;
-}
+
 .bodyParagraph {
     font-size: x-large;
 }
@@ -29,10 +24,7 @@ p.imgDescription {
     margin-top:6.5%;
     font-size:22pt;
 }
-p.smallText {
-    margin:0;
-    color:#FBFBFB;
-}
+
 html {
     background-color:#FBFBFB;
     color:#274D69;
