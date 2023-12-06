@@ -52,3 +52,27 @@ html {
     padding-left: 2px;
     padding-right: 2px;
 }
+.package {
+    width: 48%;
+    float: left;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.package img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.package h2, .package p {
+    margin: 5px;
+}
+.package input {
+    float: right;
+}
+.currentlyRunning {
+    font-weight: bold;
+    color: red;
+}
