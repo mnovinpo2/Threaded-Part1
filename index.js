@@ -89,8 +89,6 @@ app.get("/packages", (req, res) => {
 // Added by Elias Nahas
 app.get("/getpackage/:PackageId", (req, res) => {
     var package = [];
-    var agents = [];
-    var tripTypes = [];
     var dbh = getConnection();
     dbh.connect((err) => {
         if (err) throw err;
@@ -98,21 +96,12 @@ app.get("/getpackage/:PackageId", (req, res) => {
         dbh.query({ sql: sqlString, values: [req.params.PackageId] }, (err, result) => {
             if (err) throw err;
             package = result;
-            sqlString = "SELECT `AgentId`, `AgtFirstName`, `AgtMiddleInitial`, `AgtLastName` FROM agents";
-            dbh.query({ sql: sqlString }, (err, result) => {
+            dbh.end((err) => {
                 if (err) throw err;
-                agents = result;
-                sqlString = "SELECT * FROM triptypes";
-                dbh.query({ sql: sqlString }, (err, result) => {
-                    if (err) throw err;
-                    tripTypes = result;
-                    dbh.end((err) => {
-                        if (err) throw err;
-                        console.log("Disconnected from database");
-                        res.render("booking", { package: package, agents: agents, tripTypes: tripTypes });
-                        res.end();
-                    });
-                });
+                console.log("Disconnected from database");
+                res.render("booking", { package: package });
+                res.end();
+
             });
         });
     });
@@ -143,20 +132,20 @@ app.post("/createbooking", (req, res) => {
     var dbh = getConnection();
     dbh.connect((err) => {
         if (err) throw err;
-        var sql = "INSERT INTO `customers`(`CustFirstName`, `CustLastName`, `CustAddress`, `CustCity`, `CustProv`, `CustPostal`, `CustCountry`, `CustHomePhone`, `CustBusPhone`, `CustEmail`, `AgentId`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-        var data = [ req.body.CustFirstName, req.body.CustLastName, req.body.CustAddress, req.body.CustCity, req.body.CustProv, req.body.CustPostal, req.body.CustCountry, req.body.CustHomePhone, req.body.CustBusPhone, req.body.CustEmail, req.body.AgentId ];
+        var sql = "INSERT INTO `customers`(`CustFirstName`, `CustLastName`, `CustEmail`) VALUES (?,?,?)";
+        var data = [ req.body.CustFirstName, req.body.CustLastName, req.body.CustEmail ];
         dbh.query({ sql: sql, values: data }, (err, result) => {
             if (err) throw err;
             sql = "SELECT max(CustomerId) AS CustomerId FROM `customers`";
             dbh.query({ sql: sql }, (err, result) => {
                 if (err) throw err;
                 var CustomerId = result[0].CustomerId;
-                sql = "INSERT INTO `bookings`(`BookingDate`, `BookingNo`, `TravelerCount`, `CustomerId`, `TripTypeId`, `PackageId`) VALUES (?,?,?,?,?,?)";
+                sql = "INSERT INTO `bookings`(`BookingDate`, `BookingNo`, `CustomerId`, `PackageId`) VALUES (?,?,?,?)";
                 var BookingDate = new Date();
                 var randomLetter = generate3LetterString();
                 var randomNo = generate3NumberString();
                 var BookingNo = randomLetter + randomNo;
-                var data = [ BookingDate, BookingNo, req.body.TravelerCount, CustomerId, req.body.TripTypeId, req.body.PackageId ];
+                var data = [ BookingDate, BookingNo, CustomerId, req.body.PackageId ];
                 dbh.query({ sql: sql, values: data }, (err, result) => {
                     if (err) throw err;
                     var message = "";

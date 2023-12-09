@@ -6,6 +6,32 @@
     <title>Booking</title>
     <link rel="stylesheet" href="../indexStyle.css" />
     <link rel="stylesheet" href="../templateStyle.css" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+        input[type=text], input[type=email], select[onchange]
+        {
+            display: inline-block;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 4px;
+            border: solid;
+            margin: 10px 0;
+        }
+        input[type=submit], input[type=reset]
+        {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 40px;
+            border: none;
+            background-color: orange;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        input[type=submit]
+        {
+            margin-left: 115px;
+        }
+    </style>
     <script>
     function validate(myform) {
         var hasError = false;
@@ -54,46 +80,8 @@
                 <span id="CustFirstNameSpan" class="error">Please enter your first name</span><br />
                 <label for="CustLastName">Last Name:&nbsp;</label><input type="text" name="CustLastName" id="CustLastName" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
                 <span id="CustLastNameSpan" class="error">Please enter your last name</span><br />
-                <label for="CustAddress">Address:&nbsp;</label><input type="text" name="CustAddress" id="CustAddress" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
-                <span id="CustAddressSpan" class="error">Please enter your address</span><br />
-                <label for="CustCity">City:&nbsp;</label><input type="text" name="CustCity" id="CustCity" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
-                <span id="CustCitySpan" class="error">Please enter your city</span><br />
-                <label for="CustProv">Province:&nbsp;</label><input type="text" name="CustProv" id="CustProv" maxlength="2" size="2" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
-                <span id="CustProvSpan" class="error">Please enter your province</span><br />
-                <label for="CustPostal">Postal Code:&nbsp;</label><input type="text" name="CustPostal" id="CustPostal" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
-                <span id="CustPostalSpan" class="error">Please enter your postal code in the format "A1A 1A1"</span><br />
-                <label for="CustCountry">Country:&nbsp;</label><input type="text" name="CustCountry" id="CustCountry" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
-                <span id="CustCountrySpan" class="error">Please enter your country</span><br />
-                <label for="CustHomePhone">Home Phone:&nbsp;</label><input type="text" name="CustHomePhone" id="CustHomePhone" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
-                <span id="CustHomePhoneSpan" class="error">Please enter your home phone number</span><br />
-                <label for="CustBusPhone">Business Phone:&nbsp;</label><input type="text" name="CustBusPhone" id="CustBusPhone" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
-                <span id="CustBusPhoneSpan" class="error">Please enter your business phone number</span><br />
                 <label for="CustEmail">Email:&nbsp;</label><input type="email" name="CustEmail" id="CustEmail" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
                 <span id="CustEmailSpan" class="error">Please enter your email</span><br />
-                <label for="TravelerCount">Traveler Count:&nbsp;</label><input type="number" name="TravelerCount" id="TravelerCount" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);" />
-                <span id="TravelerCountSpan" class="error">Please enter the number of travelers</span><br />
-                <label for="AgentId">Agent:&nbsp;</label><select name="AgentId" id="AgentId" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);">
-                    <option value="">Select an Agent</option>
-                    <%
-                    for (var i=0; i<agents.length; i++) {
-                    %>
-                        <option value="<%= agents[i].AgentId %>"><%= agents[i].AgtFirstName %> <%= agents[i].AgtMiddleInitial %> <%= agents[i].AgtLastName %></option>
-                    <%
-                    }
-                    %>
-                </select>
-                <span id="AgentIdSpan" class="error">Please select your agent</span><br />
-                <label for="TripTypeId">Trip Type:&nbsp;</label><select name="TripTypeId" id="TripTypeId" required="required" onfocus="showMessage(this.id);" onblur="hideMessage(this.id);">
-                    <option value="">Select a Trip Type</option>
-                    <%
-                    for (var i=0; i<tripTypes.length; i++) {
-                    %>
-                        <option value="<%= tripTypes[i].TripTypeId %>"><%= tripTypes[i].TTName %></option>
-                    <%
-                    }
-                    %>
-                </select>
-                <span id="TripTypeIdSpan" class="error">Please select your trip type</span><br />
                 <input type="submit" value="Book Vacation" onclick="return validate(this.form);" />
                 <input type="reset" value="Clear" onclick="return confirm('Did you really want to reset?')" />
             </form>
