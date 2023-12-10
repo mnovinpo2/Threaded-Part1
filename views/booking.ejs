@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- This page created and coded by Elias Nahas -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Booking</title>
@@ -33,24 +34,15 @@
         }
     </style>
     <script>
+    // Check to see if fields are empty
     function validate(myform) {
         var hasError = false;
-        var postalField = document.getElementById("CustPostal");
-        var exp = new RegExp(/^[ABCEGHJ-NPRSTVXY]\d[ABCEGHJ-NPRSTV-Z][ -]?\d[ABCEGHJ-NPRSTV-Z]\d$/i);
-        var postalCode = postalField.value.trim().toUpperCase();
-        postalField.value = postalCode;
         for (var i=0; i<document.forms[0].elements.length - 2; i++) {
             if (myform.elements[i].value == "") {
-                if (myform.elements[i].name != "CustBusPhone") {
-                    hasError = true;
-                    myform.elements[i].focus();
-                    return false;
-                }
+                hasError = true;
+                myform.elements[i].focus();
+                return false;
             }
-        }
-        if (!exp.test(postalCode)) {
-            hasError = true;
-            postalField.focus();
         }
         if (!hasError) {
             return confirm('Continue submitting?');
@@ -58,9 +50,11 @@
             return false;
         }
     }
+    // Shows tooltip message
     function showMessage(myID) {
         document.getElementById(myID + "Span").style.display = 'inline-block';
     }
+    // Hides tooltip message
     function hideMessage(myID) {
         document.getElementById(myID + "Span").style.display = 'none';
     }
@@ -70,6 +64,7 @@
     <%- include('./partials/header'); %>    
     <div style="padding: 30px; margin-top: 10vh;">
         <%
+        // Generates background image name from package name
         var imgName = package[0].PkgName.toLowerCase().replace(/\ /g, "_");
         %>
         <h1 style="color:black" s><%= package[0].PkgName %></h1>

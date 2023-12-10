@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- This page created and coded by Elias Nahas -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Experts - Travel Packages</title>
     <link rel="stylesheet" href="indexStyle.css" />
     <link rel="stylesheet" href="templateStyle.css" />
+    <style>
+        input[type=button]
+        {
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 20px;
+            border: none;
+            background-color: orange;
+            cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
     <%- include('./partials/header'); %>    
 
     <div style="padding: 30px; margin-top: 10vh;">
+        <!-- Sets start and end dates with proper date formatting -->
         <% for (var i=0; i<result.length; i++) {
             var package = result[i];
             const startDate = new Date(package.PkgStartDate);
@@ -22,16 +36,20 @@
                 month: "long",
                 day: "numeric"
             };
+            // Generates image name based on package name
             var imgName = package.PkgName.toLowerCase().replace(/\ /g, "_");
+            // Formats the price to display in currency format
             var formattedPrice = package.PkgBasePrice.toLocaleString("en-US", { style: "currency", currency: "USD"});
             if (endDate >= today) {
             %>
+                <!-- Display the travel packages -->
                 <div class="package">
                     <img src="<%= imgName %>.jpg" alt="<%= package.PkgName %>" />
-                    <h2><%= package.PkgName %></h2>
+                    <h2 class="h"><%= package.PkgName %></h2>
                     <p><%= package.PkgDesc %></p>
                     <p>Start Date: 
                     <%
+                    // Highlight start date if it's currently running
                     if (startDate < today) {
                         %>
                         <span class="currentlyRunning"><%= startDate.toLocaleDateString("en-US", options) %></span>
