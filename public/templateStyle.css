@@ -1,3 +1,8 @@
+/*
+    *** written by Owen Pringle ***
+*/
+
+/* site header div that is fixed at the top of the page */
 #header {
     position: fixed;
     top:0;
@@ -7,6 +12,8 @@
     min-height:fit-content;
     z-index:1;
 }
+
+/* refers to the div that contains the logo and name */
 #brandHeader {
     width:100%;
     min-height:max-content;
@@ -15,16 +22,20 @@
     display:flex;
     align-items:center;
 }
+/* refers to the div that contains all the links to other pages */
 #navigationBar{
     float:left;
     display:block;
 }
+
 #footer {
     float:left;
     width:100vw;
     background-color: #316387;
     min-height:fit-content;
 }
+
+/* refers to the individual links in #navigationBar */
 a.navItem {
     background-color: #316387;
     border-left:1px solid black;
@@ -56,8 +67,11 @@ a.navItem:hover {
 
 }
 
+/* for the small text on the left side of the footer */
 p {
     font-size: small;
+    font-family: 'Roboto', sans-serif; 
+
 }
 p.smallText {
     margin:0;
