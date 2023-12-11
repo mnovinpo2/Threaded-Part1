@@ -1,3 +1,5 @@
+<!--Created By Mohsen Novin Pour for Team6 Threaded Projects-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,70 +10,103 @@
 	
 	<link rel="stylesheet" href="templateStyle.css"/>
 	<style>
-	
 
-h1{
-	text-align: center;
 
+body{
+	font-family: sans-serif;
 }
-.register, .register2, .option{
+.input-group, .option{
+	font-size: small;
 	margin:auto;
-	max-width: 300px;
-	padding: 10px;
+	max-width: 230px;
 	border-radius: 4px;
-}
 
-.container{
-	width: 50%;
-	display: flex;
 
 }
-input[type=text], input[type=email], select[onchange]
-{
+.form-box{
+	margin-top: 150px;
+	left: 600px;
+	width: 350px;
+	height: 700px;
+	background-color:white;
+	position: relative;
+	overflow: hidden;
+
+}
+.button-box{
+
+	width: 220px;
+	height: 40px;
+	position: relative;
+	box-shadow: 0 0 20px 9px #ff61241f;
+	border-radius: 40px;
+
+}
+.toggle-btn{
+	padding: 10px 30px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+}
+#btn{
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background: #316387;
+	border-radius: 40px;
+	transition: 0.5s;
+}
+.input-group{
+	top: 100px;
+	position: absolute;
+	width: 280px;
+	transition: 0.5s;
+}
+
+.input-field, select[onchange]{
+	font-size: small;
 	display: inline-block;
 	width: 100%;
-	padding: 10px;
-	box-sizing: border-box;
-	border-radius: 4px;
-	border: solid;
-	margin: 10px 0;
+	height: 15px;
+	padding: 10px 0;
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background: transparent;
+}
+
+select[onchange]{
+	height: 38px;
 }
 button[type=submit], button[type=reset]
 {
+	font-size: small;
 	width: 100%;
 	padding: 10px;
 	margin: 10px 0;
 	border-radius: 40px;
 	border: none;
 	background-color: orange;
-	font-size: 20px;
+	font-size: 15px;
 	cursor: pointer;
 }
 
-.tip     
-{
-	position: fixed;
-	height: 50px;
-	width: 200px;
-	top: 241px;
-	right: 30px;
-	color: white;
-	visibility: hidden;
-	border-color: black;
-	border-style: solid;
-	border-width: 1.5px;
-	background-color: rgba(255, 0, 0, 0.8)
+#login{
+	left: 50px;
 }
-
-
-
-
-
-
+#register{
+	left: 450px;
+}
 	</style>
 		
-    <title>Register</title>
-    <link href="Styles.css" rel="stylesheet"> 
+
+
 		<script>
             function checkPostal(CustPostal)
             {
@@ -101,152 +136,87 @@ button[type=submit], button[type=reset]
                     CustBusPhone.style.backgroundColor = "red";
 				}
 			}	
-			//Validate function for input boxes. constructs string output based upon empty input boxes remaining. 
-			//If empty 	input boxes exist, constructed string apended to mymessage.
-			//If all boxes filled, confirms validation.
-			
-			function validate(myForm)
-			{
-				var message = "";
-                if (myForm.CustomerId.value == "")
-				{
-					message += "Customer Id must have a value <br />";
-				}
-				if (myForm.CustFirstName.value == "")
-				{
-					message += "First Name must have a value <br />";
-				}
-				if (myForm.CustLastName.value == "")
-				{
-					message += "Last Name must have a value <br />";
-				}
-				if (myForm.CustEmail.value == "")
-				{
-					message += "Email must have a value <br />";
-				}	
-                if (myForm.CustAddress.value == "")
-				{
-					message += "Address must have a value <br />";
-				}		
-                if (myForm.CustCity.value == "")
-				{
-					message += "City Code must have a value <br />";
-				}		
-                if (myForm.CustProv.value == "")
-				{
-					message += "Province must have a value <br />";
-				}
-				if (myForm.CustPostal.value == "")
-				{
-					message += "Postal Code must have a value <br />";
-				}
-                if (myForm.CustCountry.value == "")
-				{
-					message += "Country must have a value <br />";
-				}
-				if (myForm.CustHomePhone.value == "")
-				{
-					message += "Home Phone Number must have a value <br />";
-				}
-                if (myForm.CustBusPhone.value == "")
-				{
-					message += "Bussiness Number must have a value <br />";
-				}
-                if (myForm.AgentId.value == "")
-				{
-					message += "Agent Id must have a value <br />";
-				}
-				if (message == "")
-				{
-					document.getElementById("mymessage").innerHTML = "";
-					return confirm("Form is valid, continue submitting?");
-				}
-				else
-				{
-					document.getElementById("mymessage").innerHTML = message;
-					return false;
-				}
-			}
 				
-			function showTip(para)
-			{
-				document.getElementById(para).style.visibility = "visible";
-			}
-
-			function hideTip(para)
-			{
-				document.getElementById(para).style.visibility = "hidden";
-			}
 
 </script>
 </head>
-		<!--Paragraphs for onfocus used in forms-->
-
-		<p id="tip1" class="tip">Enter your First Name</p>  
-		<p id="tip2" class="tip">Enter your Last Name</p>
-		<p id="tip3" class="tip">Enter your Email Address</p>  
-		<p id="tip4" class="tip">Enter your Address</p>
-		<p id="tip5" class="tip">Enter the name of the City where you are located</p>
-		<p id="tip6" class="tip">Enter the name of the Province where you are located</p>
-		<p id="tip7" class="tip"> Enter your Postal Code in "T3G 5Z1" Format</p>
-		<p id="tip8" class="tip">Enter the name of the Country where you are located</p>
-        <p id="tip9" class="tip">Enter your Home Phone Number</p>
-		<p id="tip10" class="tip">Enter your Bussiness Phone Number</p>
-
-		
+		<!--Login and Register Page, A tutorial on youtube by a channel named GreatStack were used to create the toggle between login and register-->
 <body>
-	<%- include('./partials/header'); %>
-	<div style="padding: 30px; margin-top: 10vh;" class="container">
-	<div class="register">
-		<h1 style="color:black;">Registration</h1>
 	
-    <form method="post" action="/insertcustomer">
-        First Name: &nbsp;<input type="text" name="CustFirstName"
-        onfocus="showTip('tip1')" onblur="hideTip('tip1')" /><br />
-        Last Name: &nbsp;<input type="text" name="CustLastName"
-        onfocus="showTip('tip2')" onblur="hideTip('tip2')" /><br />
-        Email: &nbsp;<input type="email" name="CustEmail"
-        onfocus="showTip('tip3')" onblur="hideTip('tip3')" /><br />
-        Address: &nbsp;<input type="text" name="CustAddress"
-        onfocus="showTip('tip4')" onblur="hideTip('tip4')" /><br />
-        City: &nbsp; <input type="text" name="CustCity"
-        onfocus="showTip('tip5')" onblur="hideTip('tip5')" /><br />
-        Province: &nbsp;<input type="text" name="CustProv"
-        onfocus="showTip('tip6')" onblur="hideTip('tip6')" /><br />
-		Postal Code: &nbsp;<input type="text" name="CustPostal"
-        onfocus="showTip('tip7')" onblur="hideTip('tip7')" /><br />
-        Country: &nbsp;<input type="text" name="CustCountry"
-        onfocus="showTip('tip8')" onblur="hideTip('tip8')" /><br />
-		
-		</div>
-		<div class="register2">
-		
-        Home Phone: &nbsp;<input type="text" name="CustHomePhone"
-        onfocus="showTip('tip9')" onblur="hideTip('tip9')" /><br />
-        Business Phone: &nbsp;<input type="text" name="CustBusPhone"
-        onfocus="showTip('tip10')" onblur="hideTip('tip10')" /><br />
-        Select Your Agent: <select onchange='getAgent(this.value)'>
-		<option value=''>Select an Agent to view details</option>
-		
-			<%
-			for (var i=0; i<agents.length; i++)
-			{
-			%>
-				<option value="<%= agents[i].AgentId %>"><%= agents[i].AgtFirstName %> <%= agents[i].AgtLastName %></option>
-			<%
-			}
-			%>
-		</select>	
-        
-        <!--Submission and Reset Buttons-->
-				<button type="reset" value="Reset" onclick="return confirm('Did you really want to reset?')">Reset Fields</button>
-				&nbsp;
+	<%- include('./partials/header'); %>	
+	
+	<div class="both-forms">	
+		<div class="form-box">
+			<div class="button-box">
+				<div id="btn"></div>
+				<!--Toggle buttons that swap register and login-->	
+					<button type="button" class="toggle-btn" onclick="login()">Log In</button>
+					<button type="button" class="toggle-btn" onclick="register()">Register</button>
+			</div>	
+			<!--login form-->	
+				<form id="login" class="input-group" method="post" action="/login">
+				<input type="text" name="CustFirstName" class="input-field" placeholder="First Name" required>
+				<input type="text" name="CustLastName" class="input-field" placeholder="Last Name" required>
+				<input type="text" name="CustEmail" class="input-field" placeholder="Email" required>
+				<input type="password" name="CustPassword" class="input-field" placeholder="Password"></br></br>
+				<input type="checkbox"><span>Remember Password</span></br></br></br>
 				<button type="submit" value="Submit" onclick="return validate(this.form)">Submit!</button>
+			</form>
+			<!--register form-->	
+			<form id="register" class="input-group" method="post" action="/insertcustomer">
+			<input type="text" name="CustFirstName" class="input-field" placeholder="First Name" required>
+			<input type="text" name="CustLastName" class="input-field" placeholder="Last Name" required>
+			<input type="email" name="CustEmail" class="input-field" placeholder="Email"required>
+			<input type="password" name="CustPassword" class="input-field" placeholder="Password"></br></br>
+			<input type="text" name="CustAddress" class="input-field" placeholder="Address"required>
+			<input type="text" name="CustCity" class="input-field" placeholder="City"required>
+			<input type="text" name="CustProv" class="input-field"placeholder="Province"required>
+			<input type="text" name="CustPostal" class="input-field"placeholder="Postal Code in a T3G 5L1 format"required>
+			<input type="text" name="CustCountry" class="input-field"placeholder="Country"required>
+			<input type="text" name="CustHomePhone" class="input-field"placeholder="Home Phone"required>
+			<input type="text" name="CustBusPhone" class="input-field" placeholder="Bussiness Phone"></br></br>
+			<!--Select your agent List-->
+			Select Your Agent: <select onchange='getAgent(this.value)'>
+			<option value=''>Select an Agent to view details</option>
 			
-				<!--Error message if all input boxes not completed.-->
-				<p id="mymessage" style="color:red"></p>
-        </form><br>
+				<%
+				for (var i=0; i<agents.length; i++)
+				{
+				%>
+					<option value="<%= agents[i].AgentId %>"><%= agents[i].AgtFirstName %> <%= agents[i].AgtLastName %></option>
+				<%
+				}
+				%>
+			</select>
+					<!--Submit and reset button on register form both ask customer to verify choice-->	
+					<button type="submit" value="Submit" onclick="return validate(this.form)">Submit!</button>
+					<button type="reset" value="Reset" onclick="return confirm
+					('Did you really want to reset?')">Reset Fields</button>
+		
+				</form><br>
+        </div>
 	</div>
-</div>
-	<%- include('./partials/footer.ejs'); %>
-	</body>
+		
+	<script>
+		//Swaps between register and login
+		var x = document.getElementById("login");
+		var y = document.getElementById("register");
+		var z = document.getElementById("btn");
+
+		function register(){
+			x.style.left  = "-400px"
+			y.style.left  = "50px"
+			z.style.left  = "110px"
+		}
+		function login(){
+			x.style.left  = "50px"
+			y.style.left  = "450px"
+			z.style.left  = "0"
+		}
+        
+	</script>
+<%- include('./partials/footer.ejs'); %>
+
+</body>
+
+

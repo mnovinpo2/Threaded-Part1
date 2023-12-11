@@ -23,6 +23,7 @@ app.get("/", (req, res) => {
     res.render("index");
 
 });
+// Created and Added by Mohsen Novin Pour
 app.get("/aboutUs", (req, res) => {
     res.render("AboutUs");
 });
@@ -39,6 +40,7 @@ app.get("/contact", (req, res) => {
     });    
 });
 
+// Register and Log in Page Created and Added to Index by Mohsen Novin Pour, Allows customers to register with TravelExperts and adds their info to TravelExperts DB and Select An agent
 app.get("/register", (req, res) => {
     var dbh = getConnection();
 
@@ -64,10 +66,18 @@ app.post("/insertcustomer", (req, res) => {
         message = "Registration failed";
     }
     res.render("thank-you", { message: message });       
-
 });    
 });
 
+app.post("/login", (req, res) => {
+    var message = "";
+    if (res.affectedRows) {
+        message = "Thank you and welcome back!";
+    } else {
+        message = "Failed to login"
+    }
+    res.render("thank-you", { message: message });         
+});
 
 app.get("/packages", (req, res) => {
     // Added by Elias Nahas
@@ -160,8 +170,8 @@ app.post("/createbooking", (req, res) => {
         });
     });
 });
-
-app.get("/404", (req, res) => {
+// Connection and 404 page added by Mohsen Novin Pour, Throws 404 error page on all possible incorrect URLs 
+app.get('*', (req, res) => {
     res.render("404");
 });
 
