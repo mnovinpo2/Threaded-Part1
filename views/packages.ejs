@@ -25,7 +25,9 @@
 
     <div style="padding: 30px; margin-top: 10vh;">
         <!-- Sets start and end dates with proper date formatting -->
-        <% for (var i=0; i<result.length; i++) {
+        <% 
+        var hasPackages = false;
+        for (var i=0; i<result.length; i++) {
             var package = result[i];
             const startDate = new Date(package.PkgStartDate);
             const endDate = new Date(package.PkgEndDate);
@@ -36,11 +38,17 @@
                 month: "long",
                 day: "numeric"
             };
+
             // Generates image name based on package name
             var imgName = package.PkgName.toLowerCase().replace(/\ /g, "_");
+
             // Formats the price to display in currency format
             var formattedPrice = package.PkgBasePrice.toLocaleString("en-US", { style: "currency", currency: "USD"});
+            
+            // Only displays valid packages
+            // Does not display expired packages
             if (endDate >= today) {
+                hasPackages = true;
             %>
                 <!-- Display the travel packages -->
                 <div class="package">
@@ -66,6 +74,11 @@
                 </div>
             <%
             }
+        }
+        if (!hasPackages) {
+            %>
+            <h1>No available packages at this time.</h1>
+            <%
         }
         %>
         <%- include('./partials/footer.ejs'); %>
