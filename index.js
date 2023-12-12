@@ -188,13 +188,13 @@ app.get('*', (req, res) => {
 function getConnection() {
     return mysql.createConnection({
         // Centralized database on Amazon AWS
-        // host: "travelexperts.cjaxpywc2bvi.us-east-2.rds.amazonaws.com",
-        // user: "travelexperts",
-        // password: "78+2R=,]h$49",
-        // database: "travelexperts"
-        host: "localhost",
+        host: "travelexperts.cjaxpywc2bvi.us-east-2.rds.amazonaws.com",
         user: "travelexperts",
-        password: "password",
+        password: "78+2R=,]h$49",
         database: "travelexperts"
+        // host: "localhost",
+        // user: "travelexperts",
+        // password: "password",
+        // database: "travelexperts"
     });
 };
