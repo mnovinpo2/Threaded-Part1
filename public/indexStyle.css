@@ -68,3 +68,23 @@ html {
     font-weight: bold;
     color: red;
 }
+
+.Error{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.Error h1{
+    font-size: 50px;
+    display: inline-block;
+    padding-right: 12px;
+
+}
+
+.homepage {
+   background-color: #316387;
+    color: white;
+    padding: 12px 24px;
+    display: inline-block;
+    border-radius: 25px;
+}

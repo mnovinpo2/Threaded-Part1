@@ -1,0 +1,91 @@
+body{
+	font-family: sans-serif;
+}
+.input-group, .option{
+	font-size: small;
+	margin:auto;
+	max-width: 230px;
+	border-radius: 4px;
+
+
+}
+.form-box{
+	margin-top: 150px;
+	left: 600px;
+	width: 350px;
+	height: 700px;
+	background-color:white;
+	position: relative;
+	overflow: hidden;
+
+}
+.button-box{
+
+	width: 220px;
+	height: 40px;
+	position: relative;
+	box-shadow: 0 0 20px 9px #ff61241f;
+	border-radius: 40px;
+
+}
+.toggle-btn{
+	padding: 10px 30px;
+	cursor: pointer;
+	background: transparent;
+	border: 0;
+	outline: none;
+	position: relative;
+}
+#btn{
+	top: 0;
+	left: 0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background: #316387;
+	border-radius: 40px;
+	transition: 0.5s;
+}
+.input-group{
+	top: 100px;
+	position: absolute;
+	width: 280px;
+	transition: 0.5s;
+}
+
+.input-field, select[onchange]{
+	font-size: small;
+	display: inline-block;
+	width: 100%;
+	height: 15px;
+	padding: 10px 0;
+	border-left: 0;
+	border-top: 0;
+	border-right: 0;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background: transparent;
+}
+
+select[onchange]{
+	height: 38px;
+}
+button[type=submit], button[type=reset]
+{
+	font-size: small;
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border-radius: 40px;
+	border: none;
+	background-color: orange;
+	font-size: 15px;
+	cursor: pointer;
+}
+
+#login{
+	left: 50px;
+}
+#register{
+	left: 450px;
+}

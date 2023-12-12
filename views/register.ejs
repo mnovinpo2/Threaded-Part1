@@ -9,102 +9,8 @@
     <title>Register</title>
 	
 	<link rel="stylesheet" href="templateStyle.css"/>
-	<style>
-
-
-body{
-	font-family: sans-serif;
-}
-.input-group, .option{
-	font-size: small;
-	margin:auto;
-	max-width: 230px;
-	border-radius: 4px;
-
-
-}
-.form-box{
-	margin-top: 150px;
-	left: 600px;
-	width: 350px;
-	height: 700px;
-	background-color:white;
-	position: relative;
-	overflow: hidden;
-
-}
-.button-box{
-
-	width: 220px;
-	height: 40px;
-	position: relative;
-	box-shadow: 0 0 20px 9px #ff61241f;
-	border-radius: 40px;
-
-}
-.toggle-btn{
-	padding: 10px 30px;
-	cursor: pointer;
-	background: transparent;
-	border: 0;
-	outline: none;
-	position: relative;
-}
-#btn{
-	top: 0;
-	left: 0;
-	position: absolute;
-	width: 110px;
-	height: 100%;
-	background: #316387;
-	border-radius: 40px;
-	transition: 0.5s;
-}
-.input-group{
-	top: 100px;
-	position: absolute;
-	width: 280px;
-	transition: 0.5s;
-}
-
-.input-field, select[onchange]{
-	font-size: small;
-	display: inline-block;
-	width: 100%;
-	height: 15px;
-	padding: 10px 0;
-	border-left: 0;
-	border-top: 0;
-	border-right: 0;
-	border-bottom: 1px solid #999;
-	outline: none;
-	background: transparent;
-}
-
-select[onchange]{
-	height: 38px;
-}
-button[type=submit], button[type=reset]
-{
-	font-size: small;
-	width: 100%;
-	padding: 10px;
-	margin: 10px 0;
-	border-radius: 40px;
-	border: none;
-	background-color: orange;
-	font-size: 15px;
-	cursor: pointer;
-}
-
-#login{
-	left: 50px;
-}
-#register{
-	left: 450px;
-}
-	</style>
-		
+	<link rel="stylesheet" href="indexStyle.css"/>
+	<link rel="stylesheet" href="RegisterStyles.css"/>		
 
 
 		<script>
@@ -155,15 +61,13 @@ button[type=submit], button[type=reset]
 			</div>	
 			<!--login form-->	
 				<form id="login" class="input-group" method="post" action="/login">
-				<input type="text" name="CustFirstName" class="input-field" placeholder="First Name" required>
-				<input type="text" name="CustLastName" class="input-field" placeholder="Last Name" required>
-				<input type="text" name="CustEmail" class="input-field" placeholder="Email" required>
+				<input type="email" name="CustEmail" class="input-field" placeholder="Email" required>
 				<input type="password" name="CustPassword" class="input-field" placeholder="Password"></br></br>
 				<input type="checkbox"><span>Remember Password</span></br></br></br>
 				<button type="submit" value="Submit" onclick="return validate(this.form)">Submit!</button>
 			</form>
 			<!--register form-->	
-			<form id="register" class="input-group" method="post" action="/insertcustomer">
+			<form name="registerForm" id="register" class="input-group" method="post" action="/insertcustomer">
 			<input type="text" name="CustFirstName" class="input-field" placeholder="First Name" required>
 			<input type="text" name="CustLastName" class="input-field" placeholder="Last Name" required>
 			<input type="email" name="CustEmail" class="input-field" placeholder="Email"required>
@@ -171,10 +75,10 @@ button[type=submit], button[type=reset]
 			<input type="text" name="CustAddress" class="input-field" placeholder="Address"required>
 			<input type="text" name="CustCity" class="input-field" placeholder="City"required>
 			<input type="text" name="CustProv" class="input-field"placeholder="Province"required>
-			<input type="text" name="CustPostal" class="input-field"placeholder="Postal Code in a T3G 5L1 format"required>
+			<input type="text" name="CustPostal" class="input-field"placeholder="Postal Code in a T3G 5L1 format"required onchange="checkPostal(this)">
 			<input type="text" name="CustCountry" class="input-field"placeholder="Country"required>
-			<input type="text" name="CustHomePhone" class="input-field"placeholder="Home Phone"required>
-			<input type="text" name="CustBusPhone" class="input-field" placeholder="Bussiness Phone"></br></br>
+			<input type="text" name="CustHomePhone" class="input-field"placeholder="Home Phone"required onchange="checkHomePhone(this)">
+			<input type="text" name="CustBusPhone" class="input-field" placeholder="Bussiness Phone" onchange="checkBusPhone(this)"></br></br>
 			<!--Select your agent List-->
 			Select Your Agent: <select onchange='getAgent(this.value)'>
 			<option value=''>Select an Agent to view details</option>
@@ -189,7 +93,7 @@ button[type=submit], button[type=reset]
 				%>
 			</select>
 					<!--Submit and reset button on register form both ask customer to verify choice-->	
-					<button type="submit" value="Submit" onclick="return validate(this.form)">Submit!</button>
+					<button type="submit" value="Submit">Submit!</button>
 					<button type="reset" value="Reset" onclick="return confirm
 					('Did you really want to reset?')">Reset Fields</button>
 		
