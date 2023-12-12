@@ -178,9 +178,14 @@ app.get('*', (req, res) => {
 // Added by Elias Nahas
 function getConnection() {
     return mysql.createConnection({
-        host: "travelexperts.cjaxpywc2bvi.us-east-2.rds.amazonaws.com",
+        // Centralized database on Amazon AWS
+        // host: "travelexperts.cjaxpywc2bvi.us-east-2.rds.amazonaws.com",
+        // user: "travelexperts",
+        // password: "78+2R=,]h$49",
+        // database: "travelexperts"
+        host: "localhost",
         user: "travelexperts",
-        password: "78+2R=,]h$49",
+        password: "password",
         database: "travelexperts"
     });
 };
